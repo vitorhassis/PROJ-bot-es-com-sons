@@ -1,24 +1,45 @@
-function tocaSom (idElementoAudio) {
-//"quem utilizar a funcao tocaSom, irá informá-la com o id do elemento audio. vc n usa aspas, pq eh um PARAMETRO, ou seja, algo que informará a função para a função tocar o som corretamente"
-    document.querySelector(idElementoAudio).play();
-//vai selecionar um elemento de audio no HTML com o id especificado e dar .play, ou seja, reproduzi-lo//
+function tocaSom (seletorAudio) {
+   const elemento = document.querySelector(seletorAudio);
+//para caso alguem use a função de maneira errada, receber tal aviso
+   if (elemento && elemento.localName === 'audio') {
+    //antes estava, se elemento !=null. mas nao precisa por isso, o if eh inteligente o bastante para verificar "Se o elemento existe (que ele nao seja nulo, sem valor) e o localName do elemento for audio, ..."
+       elemento.play();
+    }
+    else {
+    console.log('Elemento ou não encontrado ou seletor inválido');
+    }   
 }
+
  const listadeTeclas = document.querySelectorAll('.tecla');
-//aq temos uma constante com o nome listadeTeclas, que selecionará um conjunto de elementos HTML que possuem a classe "tecla".
 
-let contador = 0;
-//temos uma variavel chamada contador com o valor zero, esta variavel sera usada para contar as repetições e compare com o numero total da nossa lista
+for (let contador = 0; contador < listadeTeclas.length; contador++) {
 
- while (contador < listadeTeclas.length) {
-//while eh enquanto. Enquanto algo for verdadeiro, ele vai executar tal ação. Neste caso, enquanto o contador for menor que o numero de botoes, ele vai realizar um evento de clique (onclick) para cada elemento da lista de teclas, e quando uma tecla eh clicada, a função "tocaSom" será chamada. ele faz um looping, ent ele começa com o zero, faz ele ir la na lista de teclas, no valor zero ou seja o primeiro botao, clicar e executar a função tocaSom, que la em cima está definida para informar a própria função com o id do elemento audio, que por sua vez vai (executar) procurar em html o id do audio definido quando voce solicitou, e dar play no audio.
-  
-    listadeTeclas[contador].onclick = function () {
-//função anonima. função sem nome que apenas é utilizado nesse contexto, quando ela é um valor de um atributo, ou estao sendo armazenados dentro de uma referencia constante ou variável, para so ser acionada apenas quando o usuário o acionar, eh como se estamos criando uma nova função.
-        tocaSom('#som_tecla_pom')
-    };
+    const tecla = listadeTeclas[contador]
+    const instrumento = tecla.classList[1]; // Obtém a segunda classe do elemento tecla, que corresponde ao nome do instrumento
+    const idAudio = `#som_${instrumento}`; //template string
 
-    contador = contador + 1;
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    }
 
-    console.log(contador);
+    tecla.onkeydown = function (evento) {
+
+        if (evento.code === 'Space' || evento.code ==='Enter') {
+        //.code = ele detecta qual tecla está sendo pressionada. no caso, nomeamos como evento, mas poderiamos colocar qualquer nome. Usamos 3 espaços, por ser mais "seguro". o || = disjunção, ou seja, "OU". ou um ou o outro. se a tecla pressionada for space OU enter, adicionar a class ativa 
+        tecla.classList.add('ativa');
+        //criamos uma classe pelo js. (para adicionar, remover uma classe, usamos esse classList) ent qnd a tecla estiver clicada, onkeydown, criar/add uma class, chamada de "ativa".
+        }
+       
+        if (evento.code ==='Enter') {
+            tecla.classList.add('ativa');
+            //class ativa, la em css, possui toda uma config para quando a tecla for clicada, eh uma tag q eu n conhecia ate entao
+        }
+        
+    }   
+
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+    }
+
  }
 

@@ -48,6 +48,7 @@ h1 {
 
 .tecla.ativa,
 .tecla:active {
+  /*qnd o usuario clicar os botoes*/
   background-color: var(--vermelha);
   border: 4px solid  var(--vermelha);
   box-shadow: 3px 3px 0 var(--vermelha-escura) inset;

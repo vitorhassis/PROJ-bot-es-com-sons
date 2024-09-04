@@ -1,0 +1,33 @@
+-CONST = x; onde x = um nome que podemos dar. Por exemplo, const ListaDeTeclas = document.querySelectorAll('.tecla'); muito mais didático e fácil de entender, ou seja, 
+criamos uma constante com um nome que nós definimos, e ela condiz com uma sequencia de funções (querySelectorAll), que seriam os botoes de classe*/
+
+---------------------------------------------
+-listaDeTeclas[X] x- indice 
+
+-WHILE
+-precisamos que do lado esquerdo do operador tenha sempre algo contando as repetições, e do lado direito, e que compare com o numero total da lista, para isso,
+ precisamos de um contador;
+-como voce nao necessariamente vai saber quantos elementos, nesse caso botoes, terao na lista, vc colocando o .length faz ele buscar o numero maximo de elementos da lista
+ e entao, adicionando a propriedade while para todos eles;
+
+----------------------------------------------
+FUNCTION 
+-uma função é um bloco de código que pode ser chamado ou executado quando necessário;
+-os parênteses em uma função são usados para declarar os parâmetros da função;
+----------------------------------------------
+PARAMETRO DA FUNCTION
+-os parâmetros são um recurso opcional de uma função, podendo haver funções com ou sem eles. A motivação para declarar um parâmetro na função é quando queremos criar 
+um código mais genérico e que precisa receber um valor variável externo, de quem chama a função, para terminar de executar sua lógica interna. O valor de um parâmetro 
+só é acessado dentro do escopo da função;
+-Os parâmetros servem para auxiliar em alguma lógica no código dentro de uma função. Por exemplo, uma função calculaMedia(), pode ter como parâmetros notaA e nota B
+, que serão os valores utilizados para serem calculados e retornar o valor da média;
+----------------------------------------------
+-devemos colocar o JavaScript dentro da tag body logo antes do seu fechamento, </body>, quando O script depende de elementos do body já carregados pelo navegador.
+-por que o uso do document.querySelectorAll se justifica? para selecionarmos todos os elementos do seletor desejado, reduzindo a quantidade de repetição de código, 
+que consequentemente, promoverá uma otimização no código em alternativa a repetição;
+----------------------------------------------
+DEVTOOLS 
+-Através dessa ferramenta, conseguimos editar a aplicação em tempo de execução, adicionar ou remover tags HTML, mexer no CSS da página, escrever código 
+JavaScript no console e ver as modificações sem persistência;
+-Diferente do método tradicional para resolver problemas do código fonte que consistia em abrir o código e olhar linha a linha para descobrir o erro, o DevTools 
+apresenta uma maneira mais simples e direta do problema no código, bastando acessar a aba Console que lá estará indicando o tipo e o arquivo onde se encontra o erro.

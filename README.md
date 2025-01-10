@@ -2,7 +2,7 @@
 
 ###
 
-<p align="center">Mais um exercício realizado também na plataforma Alura, expandindo o aprendizado com JavaScript</p>
+<p align="center">-Mais um exercício realizado também na plataforma Alura, expandindo o aprendizado com JavaScript;</p>
 
 ###
 
